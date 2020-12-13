@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+    <bottom>
+        <TabPane fx:id="queuesPane" prefHeight="572.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="tabRunning" text="Running">
+                    <content>
+                        <BorderPane fx:id="runningPane" prefHeight="540.0" prefWidth="200.0">
+                            <top>
+                                <ToolBar fx:id="barResources" prefHeight="25.0" prefWidth="800.0" BorderPane.alignment="TOP_CENTER">
+                                    <items>
+                                    </items>
+                                </ToolBar>
+                            </top>
+                        </BorderPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabRejected" text="Rejects">
+                    <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab fx:id="tabFinished" text="Finished">
+                    <content>
+                        <TableView prefHeight="200.0" prefWidth="200.0" />
+                    </content>
+                </Tab>
+                <Tab fx:id="tabSettings" text="Settings and Stats">
+                    <content>
+                        <Pane prefHeight="540.0" prefWidth="800.0">
+                            <children>
+                                <TitledPane animated="false" collapsible="false" text="Settings">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                            <children>
+                                                <Label layoutX="14.0" layoutY="15.0" prefHeight="17.0" prefWidth="136.0" text="System memory">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="txtMemory" layoutX="14.0" layoutY="35.0" text="2048" />
+                                                <Label layoutX="14.0" layoutY="80.0" prefHeight="17.0" prefWidth="136.0" text="Resources count">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="txtResources" layoutX="14.0" layoutY="100.0" text="3" />
+                                                <Label layoutX="14.0" layoutY="135.0" prefHeight="20.0" prefWidth="137.0" text="Ticks per second:">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <Slider fx:id="sldTps" blockIncrement="1.0" layoutX="14.0" layoutY="155.0" max="20.0" min="1.0" value="1.0" />
+                                                <Label fx:id="lblTps" layoutX="160.0" layoutY="152.0" text="1" />
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TitledPane animated="false" collapsible="false" layoutY="206.0" text="Stats">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="200.0">
+                                            <children>
+                                                <Label layoutX="5.0" layoutY="5.0" text="System Time (ticks):">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="55.0" text="Tasks finished:">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="75.0" text="Tasks rejected:">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="105.0" text="CPU inactivity (ticks):">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="160.0" text="CPU queue size:">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="190.0" text="Tasks total:">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label layoutX="5.0" layoutY="220.0" text="Memory usage:">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+
+                                                <Label fx:id="lblTicks" layoutX="135.0" layoutY="5.0" text="0" />
+                                                <Label fx:id="lblFinished" layoutX="135.0" layoutY="55.0" text="0" />
+                                                <Label fx:id="lblRejected" layoutX="135.0" layoutY="75.0" text="0" />
+                                                <Label fx:id="lblQueue" layoutX="135.0" layoutY="105.0" text="0" />
+                                                <Label fx:id="lblInactivity" layoutX="135.0" layoutY="160.0" text="0" />
+                                                <Label fx:id="lblTotal" layoutX="135.0" layoutY="190.0" text="0" />
+
+                                                <Label fx:id="lblMemory" layoutX="135.0" layoutY="220.0" text="0" />
+                                            </children>
+                                        </AnchorPane>
+                                    </content>
+                                </TitledPane>
+                                <TableView fx:id="tblResources" layoutX="202.0" prefHeight="550.0" prefWidth="600.0" />
+                            </children>
+                        </Pane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </bottom>
+    <center>
+        <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <items>
+                <Button id="dark-blue" fx:id="btnRun" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" stylesheets="@button.css" text="Run" textAlignment="CENTER" />
+                <Button id="dark-blue" fx:id="btnCreate" alignment="CENTER" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" stylesheets="@button.css" text="Create" textAlignment="CENTER" />
+                <ToggleButton id="dark-blue" fx:id="btnPause" mnemonicParsing="false" prefHeight="24.0" prefWidth="80.0" stylesheets="@button.css" text="Pause" />
+            </items>
+            <BorderPane.margin>
+                <Insets />
+            </BorderPane.margin>
+        </ToolBar>
+    </center>
+</BorderPane>
